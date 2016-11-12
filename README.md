@@ -2,6 +2,8 @@
 
 A ReactJS component to do make awesome components with ripples.
 
+![alt tag](https://raw.githubusercontent.com/gyorgygutai/react-material-ripple/master/preview.gif)
+
 ## Installation
 
 It can be installed as an [npm package](https://www.npmjs.org/package/react-material-ripple):
