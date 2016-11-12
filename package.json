@@ -1,7 +1,7 @@
 {
   "name": "react-material-ripple",
   "description": "A Material Ripple ReactJS component",
-  "main": "dist/index.js",
+  "main": "components/index.js",
   "version": "0.0.3",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",
