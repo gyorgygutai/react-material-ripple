@@ -54,4 +54,9 @@ class Ripple extends React.Component {
   }
 }
 
+Ripple.propTypes = {
+  children: React.PropTypes.element,
+  className: React.PropTypes.string
+}
+
 export default Ripple
