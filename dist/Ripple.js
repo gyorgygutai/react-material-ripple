@@ -40,10 +40,6 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Ripple = require('./Ripple.scss');
-
-var _Ripple2 = _interopRequireDefault(_Ripple);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Ripple = function (_React$Component) {
@@ -98,7 +94,7 @@ var Ripple = function (_React$Component) {
           width: size,
           height: size
         },
-        className: _Ripple2.default.ripple
+        className: 'ripple'
       }), toNode);
     }
   }, {
@@ -114,7 +110,7 @@ var Ripple = function (_React$Component) {
         (0, _extends3.default)({}, this.props, {
           ref: 'rippleContainer',
           onClick: this._doTheRipple,
-          className: (0, _classnames2.default)(_Ripple2.default.RippleContainer, rippleContainerClassName)
+          className: (0, _classnames2.default)("rippleContainer", rippleContainerClassName)
         }),
         children,
         _react2.default.createElement('span', { ref: 'ripple' })
