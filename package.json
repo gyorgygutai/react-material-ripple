@@ -2,7 +2,7 @@
   "name": "react-material-ripple",
   "description": "A Material Ripple ReactJS component",
   "main": "dist/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",
   "files": [
@@ -13,7 +13,7 @@
   "scripts": {
     "lint": "eslint components/** tests/**",
     "lintfix": "eslint --fix components/** tests/**",
-    "prepublish": "npm run lint && npm run build",
+    "prepublish": "npm run build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "storybook": "start-storybook -p 9002",
     "test": "mocha --require tests/config/setup 'tests/**/*.test.js'",
