@@ -1,6 +1,6 @@
 # react-material-ripple
 
-A ReactJS component to do make awesome components with ripples.
+A ReactJS component to make awesome components with ripples.
 
 ![alt tag](https://raw.githubusercontent.com/gyorgygutai/react-material-ripple/master/preview.gif)
 
