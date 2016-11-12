@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 
-import classes from './Ripple.scss'
-
 class Ripple extends React.Component {
   _doTheRipple = (event) => {
     const rippleSize = this._calculateRippleSize(this.refs.rippleContainer)
@@ -34,7 +32,7 @@ class Ripple extends React.Component {
           width: size,
           height: size
         }}
-        className={classes.ripple}
+        className="ripple"
       />
     ), toNode)
   }
@@ -47,7 +45,7 @@ class Ripple extends React.Component {
         {...this.props}
         ref="rippleContainer"
         onClick={this._doTheRipple}
-        className={classNames(classes.RippleContainer, rippleContainerClassName)}
+        className={classNames("rippleContainer", rippleContainerClassName)}
       >
         {children}
         <span ref="ripple" />

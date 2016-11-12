@@ -1,0 +1,44 @@
+.rippleContainer {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.ripple {
+  width: 0;
+  height: 0;
+  opacity: .7;
+  position: absolute;
+  -webkit-border-radius: 150%;
+          border-radius: 150%;
+  background: currentColor;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  cursor: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: inline-block;
+  -webkit-animation: rippleAnimation .7s linear;
+          animation: rippleAnimation .7s linear;
+}
+
+@-webkit-keyframes rippleAnimation {
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes rippleAnimation {
+  100% {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+    opacity: 0;
+  }
+}
