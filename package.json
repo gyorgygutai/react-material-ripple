@@ -8,6 +8,7 @@
   "files": [
     "src",
     "dist",
+    "components",
     "README"
   ],
   "scripts": {
