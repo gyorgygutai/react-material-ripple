@@ -23,6 +23,7 @@
       -ms-user-select: none;
           user-select: none;
   display: inline-block;
+  pointer-events: none;
   -webkit-animation: rippleAnimation .7s linear;
           animation: rippleAnimation .7s linear;
 }
