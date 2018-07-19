@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { element, string } from 'prop-types'
 import classNames from 'classnames'
 
 class Ripple extends React.Component {
@@ -12,7 +12,7 @@ class Ripple extends React.Component {
   _calculateRippleSize(parent) {
     const { offsetWidth, offsetHeight } = parent
 
-    return offsetWidth >= offsetHeight? offsetWidth : offsetHeight
+    return offsetWidth >= offsetHeight ? offsetWidth : offsetHeight
   }
   _calculateRipplePosition(event, parent, rippleSize) {
     const bounds = parent.getBoundingClientRect();
@@ -55,8 +55,8 @@ class Ripple extends React.Component {
 }
 
 Ripple.propTypes = {
-  children: React.PropTypes.element,
-  className: React.PropTypes.string
+  children: element,
+  className: string
 }
 
 export default Ripple

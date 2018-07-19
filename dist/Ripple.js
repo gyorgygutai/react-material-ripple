@@ -120,9 +120,9 @@ var Ripple = function (_React$Component) {
   return Ripple;
 }(_react2.default.Component);
 
-Ripple.propTypes = {
-  children: _react2.default.PropTypes.element,
-  className: _react2.default.PropTypes.string
-};
+// Ripple.propTypes = {
+//   children: React.PropTypes.element,
+//   className: React.PropTypes.string
+// }
 
 exports.default = Ripple;
