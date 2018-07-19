@@ -1,28 +1,38 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { element, string } from 'prop-types'
 import classNames from 'classnames'
 
 class Ripple extends React.Component {
-  _doTheRipple = (event) => {
-    const rippleSize = this._calculateRippleSize(this.refs.rippleContainer)
-    const ripplePosition = this._calculateRipplePosition(event, this.refs.rippleContainer, rippleSize)
+  constructor (props) {
+    super(props)
 
-    this._renderRipple(this.refs.ripple, rippleSize, ripplePosition)
+    this.ripple = null
+    this.rippleContainer = null
+
+    this._doTheRipple = this._doTheRipple.bind(this)
   }
-  _calculateRippleSize(parent) {
+
+  _doTheRipple (event) {
+    const rippleSize = this._calculateRippleSize(this.rippleContainer)
+    const ripplePosition = this._calculateRipplePosition(event, this.rippleContainer, rippleSize)
+
+    this._renderRipple(this.ripple, rippleSize, ripplePosition)
+  }
+  _calculateRippleSize (parent) {
     const { offsetWidth, offsetHeight } = parent
 
     return offsetWidth >= offsetHeight ? offsetWidth : offsetHeight
   }
-  _calculateRipplePosition(event, parent, rippleSize) {
-    const bounds = parent.getBoundingClientRect();
+  _calculateRipplePosition (event, parent, rippleSize) {
+    const bounds = parent.getBoundingClientRect()
 
-    const x = event.clientX - bounds.left - (rippleSize / 2);
-    const y = event.clientY - bounds.top - (rippleSize / 2);
+    const x = event.clientX - bounds.left - (rippleSize / 2)
+    const y = event.clientY - bounds.top - (rippleSize / 2)
 
     return { x, y }
   }
-  _renderRipple(toNode, size, position) {
+  _renderRipple (toNode, size, position) {
     ReactDOM.unmountComponentAtNode(toNode)
     ReactDOM.render((
       <span
@@ -32,23 +42,23 @@ class Ripple extends React.Component {
           width: size,
           height: size
         }}
-        className="ripple"
+        className='ripple'
       />
     ), toNode)
   }
 
-  render() {
+  render () {
     const { children, className: rippleContainerClassName } = this.props
 
     return (
       <div
         {...this.props}
-        ref="rippleContainer"
+        ref={(el) => { this.rippleContainer = el }}
         onClick={this._doTheRipple}
-        className={classNames("rippleContainer", rippleContainerClassName)}
+        className={classNames('rippleContainer', rippleContainerClassName)}
       >
         {children}
-        <span ref="ripple" />
+        <span ref={(el) => { this.ripple = el }} />
       </div>
     )
   }

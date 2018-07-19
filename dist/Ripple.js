@@ -36,6 +36,8 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _propTypes = require('prop-types');
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -45,26 +47,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Ripple = function (_React$Component) {
   (0, _inherits3.default)(Ripple, _React$Component);
 
-  function Ripple() {
-    var _ref;
-
-    var _temp, _this, _ret;
-
+  function Ripple(props) {
     (0, _classCallCheck3.default)(this, Ripple);
 
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+    var _this = (0, _possibleConstructorReturn3.default)(this, (Ripple.__proto__ || (0, _getPrototypeOf2.default)(Ripple)).call(this, props));
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Ripple.__proto__ || (0, _getPrototypeOf2.default)(Ripple)).call.apply(_ref, [this].concat(args))), _this), _this._doTheRipple = function (event) {
-      var rippleSize = _this._calculateRippleSize(_this.refs.rippleContainer);
-      var ripplePosition = _this._calculateRipplePosition(event, _this.refs.rippleContainer, rippleSize);
+    _this.ripple = null;
+    _this.rippleContainer = null;
 
-      _this._renderRipple(_this.refs.ripple, rippleSize, ripplePosition);
-    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
+    _this._doTheRipple = _this._doTheRipple.bind(_this);
+    return _this;
   }
 
   (0, _createClass3.default)(Ripple, [{
+    key: '_doTheRipple',
+    value: function _doTheRipple(event) {
+      var rippleSize = this._calculateRippleSize(this.rippleContainer);
+      var ripplePosition = this._calculateRipplePosition(event, this.rippleContainer, rippleSize);
+
+      this._renderRipple(this.ripple, rippleSize, ripplePosition);
+    }
+  }, {
     key: '_calculateRippleSize',
     value: function _calculateRippleSize(parent) {
       var offsetWidth = parent.offsetWidth,
@@ -100,6 +103,8 @@ var Ripple = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var _props = this.props,
           children = _props.children,
           rippleContainerClassName = _props.className;
@@ -108,21 +113,25 @@ var Ripple = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         (0, _extends3.default)({}, this.props, {
-          ref: 'rippleContainer',
+          ref: function ref(el) {
+            _this2.rippleContainer = el;
+          },
           onClick: this._doTheRipple,
-          className: (0, _classnames2.default)("rippleContainer", rippleContainerClassName)
+          className: (0, _classnames2.default)('rippleContainer', rippleContainerClassName)
         }),
         children,
-        _react2.default.createElement('span', { ref: 'ripple' })
+        _react2.default.createElement('span', { ref: function ref(el) {
+            _this2.ripple = el;
+          } })
       );
     }
   }]);
   return Ripple;
 }(_react2.default.Component);
 
-// Ripple.propTypes = {
-//   children: React.PropTypes.element,
-//   className: React.PropTypes.string
-// }
+Ripple.propTypes = {
+  children: _propTypes.element,
+  className: _propTypes.string
+};
 
 exports.default = Ripple;
